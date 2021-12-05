@@ -16,8 +16,8 @@ public class JurjenLangParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, INT=8, VAR=9, 
-		NAME=10, WS=11, FUNC=12, FUNC_RET=13;
+		T__0=1, T__1=2, T__2=3, FUNC_KW=4, FUNC_RET=5, INT=6, IDENTIFIER=7, OPERATOR=8, 
+		WS=9;
 	public static final int
 		RULE_startRule = 0, RULE_func = 1, RULE_func_def = 2, RULE_func_return = 3, 
 		RULE_stats = 4, RULE_stat = 5, RULE_retstat = 6, RULE_ass = 7, RULE_e = 8;
@@ -31,15 +31,14 @@ public class JurjenLangParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'{'", "'}'", "'='", "'+'", "'*'", "'/'", "'-'", null, null, null, 
-			null, "'func'", "'return'"
+			null, "'{'", "'}'", "'='", "'func'", "'return'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, null, "INT", "VAR", "NAME", 
-			"WS", "FUNC", "FUNC_RET"
+			null, null, null, null, "FUNC_KW", "FUNC_RET", "INT", "IDENTIFIER", "OPERATOR", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -97,6 +96,7 @@ public class JurjenLangParser extends Parser {
 		public FuncContext func() {
 			return getRuleContext(FuncContext.class,0);
 		}
+		public TerminalNode EOF() { return getToken(JurjenLangParser.EOF, 0); }
 		public StartRuleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -119,6 +119,8 @@ public class JurjenLangParser extends Parser {
 			{
 			setState(18);
 			func();
+			setState(19);
+			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -162,15 +164,15 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(20);
-			func_def();
 			setState(21);
-			match(T__0);
+			func_def();
 			setState(22);
-			stats();
+			match(T__0);
 			setState(23);
-			func_return();
+			stats();
 			setState(24);
+			func_return();
+			setState(25);
 			match(T__1);
 			}
 		}
@@ -186,8 +188,8 @@ public class JurjenLangParser extends Parser {
 	}
 
 	public static class Func_defContext extends ParserRuleContext {
-		public TerminalNode FUNC() { return getToken(JurjenLangParser.FUNC, 0); }
-		public TerminalNode NAME() { return getToken(JurjenLangParser.NAME, 0); }
+		public TerminalNode FUNC_KW() { return getToken(JurjenLangParser.FUNC_KW, 0); }
+		public TerminalNode IDENTIFIER() { return getToken(JurjenLangParser.IDENTIFIER, 0); }
 		public Func_defContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -208,10 +210,10 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(26);
-			match(FUNC);
 			setState(27);
-			match(NAME);
+			match(FUNC_KW);
+			setState(28);
+			match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -250,9 +252,9 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(29);
-			match(FUNC_RET);
 			setState(30);
+			match(FUNC_RET);
+			setState(31);
 			retstat();
 			}
 		}
@@ -295,17 +297,17 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(35);
+			setState(36);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==VAR) {
+			while (_la==IDENTIFIER) {
 				{
 				{
-				setState(32);
+				setState(33);
 				stat();
 				}
 				}
-				setState(37);
+				setState(38);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -346,7 +348,7 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(38);
+			setState(39);
 			ass();
 			}
 		}
@@ -365,7 +367,7 @@ public class JurjenLangParser extends Parser {
 		public EContext e() {
 			return getRuleContext(EContext.class,0);
 		}
-		public TerminalNode VAR() { return getToken(JurjenLangParser.VAR, 0); }
+		public TerminalNode IDENTIFIER() { return getToken(JurjenLangParser.IDENTIFIER, 0); }
 		public RetstatContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -384,21 +386,21 @@ public class JurjenLangParser extends Parser {
 		RetstatContext _localctx = new RetstatContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_retstat);
 		try {
-			setState(42);
+			setState(43);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(40);
+				setState(41);
 				e(0);
 				}
 				break;
-			case VAR:
+			case IDENTIFIER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(41);
-				match(VAR);
+				setState(42);
+				match(IDENTIFIER);
 				}
 				break;
 			default:
@@ -417,9 +419,9 @@ public class JurjenLangParser extends Parser {
 	}
 
 	public static class AssContext extends ParserRuleContext {
-		public List<TerminalNode> VAR() { return getTokens(JurjenLangParser.VAR); }
-		public TerminalNode VAR(int i) {
-			return getToken(JurjenLangParser.VAR, i);
+		public List<TerminalNode> IDENTIFIER() { return getTokens(JurjenLangParser.IDENTIFIER); }
+		public TerminalNode IDENTIFIER(int i) {
+			return getToken(JurjenLangParser.IDENTIFIER, i);
 		}
 		public EContext e() {
 			return getRuleContext(EContext.class,0);
@@ -442,29 +444,29 @@ public class JurjenLangParser extends Parser {
 		AssContext _localctx = new AssContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_ass);
 		try {
-			setState(50);
+			setState(51);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(44);
-				match(VAR);
 				setState(45);
-				match(T__2);
+				match(IDENTIFIER);
 				setState(46);
+				match(T__2);
+				setState(47);
 				e(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(47);
-				match(VAR);
 				setState(48);
-				match(T__2);
+				match(IDENTIFIER);
 				setState(49);
-				match(VAR);
+				match(T__2);
+				setState(50);
+				match(IDENTIFIER);
 				}
 				break;
 			}
@@ -488,6 +490,7 @@ public class JurjenLangParser extends Parser {
 		public EContext e(int i) {
 			return getRuleContext(EContext.class,i);
 		}
+		public TerminalNode OPERATOR() { return getToken(JurjenLangParser.OPERATOR, 0); }
 		public EContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -518,75 +521,33 @@ public class JurjenLangParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(53);
+			setState(54);
 			match(INT);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(69);
+			setState(61);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(67);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
-					case 1:
-						{
-						_localctx = new EContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_e);
-						setState(55);
-						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(56);
-						match(T__3);
-						setState(57);
-						e(6);
-						}
-						break;
-					case 2:
-						{
-						_localctx = new EContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_e);
-						setState(58);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(59);
-						match(T__4);
-						setState(60);
-						e(5);
-						}
-						break;
-					case 3:
-						{
-						_localctx = new EContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_e);
-						setState(61);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(62);
-						match(T__5);
-						setState(63);
-						e(4);
-						}
-						break;
-					case 4:
-						{
-						_localctx = new EContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_e);
-						setState(64);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(65);
-						match(T__6);
-						setState(66);
-						e(3);
-						}
-						break;
+					{
+					_localctx = new EContext(_parentctx, _parentState);
+					pushNewRecursionContext(_localctx, _startState, RULE_e);
+					setState(56);
+					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+					setState(57);
+					match(OPERATOR);
+					setState(58);
+					e(3);
 					}
 					} 
 				}
-				setState(71);
+				setState(63);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
 			}
 		}
@@ -611,36 +572,28 @@ public class JurjenLangParser extends Parser {
 	private boolean e_sempred(EContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 5);
-		case 1:
-			return precpred(_ctx, 4);
-		case 2:
-			return precpred(_ctx, 3);
-		case 3:
 			return precpred(_ctx, 2);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\17K\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\5\3\5\3\5\3\6\7\6$\n\6\f\6\16\6\'\13"+
-		"\6\3\7\3\7\3\b\3\b\5\b-\n\b\3\t\3\t\3\t\3\t\3\t\3\t\5\t\65\n\t\3\n\3\n"+
-		"\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\7\nF\n\n\f\n\16\n"+
-		"I\13\n\3\n\2\3\22\13\2\4\6\b\n\f\16\20\22\2\2\2H\2\24\3\2\2\2\4\26\3\2"+
-		"\2\2\6\34\3\2\2\2\b\37\3\2\2\2\n%\3\2\2\2\f(\3\2\2\2\16,\3\2\2\2\20\64"+
-		"\3\2\2\2\22\66\3\2\2\2\24\25\5\4\3\2\25\3\3\2\2\2\26\27\5\6\4\2\27\30"+
-		"\7\3\2\2\30\31\5\n\6\2\31\32\5\b\5\2\32\33\7\4\2\2\33\5\3\2\2\2\34\35"+
-		"\7\16\2\2\35\36\7\f\2\2\36\7\3\2\2\2\37 \7\17\2\2 !\5\16\b\2!\t\3\2\2"+
-		"\2\"$\5\f\7\2#\"\3\2\2\2$\'\3\2\2\2%#\3\2\2\2%&\3\2\2\2&\13\3\2\2\2\'"+
-		"%\3\2\2\2()\5\20\t\2)\r\3\2\2\2*-\5\22\n\2+-\7\13\2\2,*\3\2\2\2,+\3\2"+
-		"\2\2-\17\3\2\2\2./\7\13\2\2/\60\7\5\2\2\60\65\5\22\n\2\61\62\7\13\2\2"+
-		"\62\63\7\5\2\2\63\65\7\13\2\2\64.\3\2\2\2\64\61\3\2\2\2\65\21\3\2\2\2"+
-		"\66\67\b\n\1\2\678\7\n\2\28G\3\2\2\29:\f\7\2\2:;\7\6\2\2;F\5\22\n\b<="+
-		"\f\6\2\2=>\7\7\2\2>F\5\22\n\7?@\f\5\2\2@A\7\b\2\2AF\5\22\n\6BC\f\4\2\2"+
-		"CD\7\t\2\2DF\5\22\n\5E9\3\2\2\2E<\3\2\2\2E?\3\2\2\2EB\3\2\2\2FI\3\2\2"+
-		"\2GE\3\2\2\2GH\3\2\2\2H\23\3\2\2\2IG\3\2\2\2\7%,\64EG";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13C\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\2"+
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\5\3\5\3\5\3\6\7\6%\n\6\f\6\16\6"+
+		"(\13\6\3\7\3\7\3\b\3\b\5\b.\n\b\3\t\3\t\3\t\3\t\3\t\3\t\5\t\66\n\t\3\n"+
+		"\3\n\3\n\3\n\3\n\3\n\7\n>\n\n\f\n\16\nA\13\n\3\n\2\3\22\13\2\4\6\b\n\f"+
+		"\16\20\22\2\2\2=\2\24\3\2\2\2\4\27\3\2\2\2\6\35\3\2\2\2\b \3\2\2\2\n&"+
+		"\3\2\2\2\f)\3\2\2\2\16-\3\2\2\2\20\65\3\2\2\2\22\67\3\2\2\2\24\25\5\4"+
+		"\3\2\25\26\7\2\2\3\26\3\3\2\2\2\27\30\5\6\4\2\30\31\7\3\2\2\31\32\5\n"+
+		"\6\2\32\33\5\b\5\2\33\34\7\4\2\2\34\5\3\2\2\2\35\36\7\6\2\2\36\37\7\t"+
+		"\2\2\37\7\3\2\2\2 !\7\7\2\2!\"\5\16\b\2\"\t\3\2\2\2#%\5\f\7\2$#\3\2\2"+
+		"\2%(\3\2\2\2&$\3\2\2\2&\'\3\2\2\2\'\13\3\2\2\2(&\3\2\2\2)*\5\20\t\2*\r"+
+		"\3\2\2\2+.\5\22\n\2,.\7\t\2\2-+\3\2\2\2-,\3\2\2\2.\17\3\2\2\2/\60\7\t"+
+		"\2\2\60\61\7\5\2\2\61\66\5\22\n\2\62\63\7\t\2\2\63\64\7\5\2\2\64\66\7"+
+		"\t\2\2\65/\3\2\2\2\65\62\3\2\2\2\66\21\3\2\2\2\678\b\n\1\289\7\b\2\29"+
+		"?\3\2\2\2:;\f\4\2\2;<\7\n\2\2<>\5\22\n\5=:\3\2\2\2>A\3\2\2\2?=\3\2\2\2"+
+		"?@\3\2\2\2@\23\3\2\2\2A?\3\2\2\2\6&-\65?";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

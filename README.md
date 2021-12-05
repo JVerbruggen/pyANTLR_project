@@ -5,6 +5,8 @@ To execute, follow the following steps
 2. Install the `antlr4-python3-runtime` package for python
 3. `py project.py .\text.txt`
 
+The repository includes a java folder, which is exclusively used for the antlr4 testrig. I wont be implementing any listeners there.
+
 ## Making changes
 
 If you made changes to the language or anything else, and the python files (and java classes for testrig) have to be regenerated, use the following steps:

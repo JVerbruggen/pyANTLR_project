@@ -15,7 +15,5 @@ def main(argv):
     walker = ParseTreeWalker()
     walker.walk(listener, tree)
 
-    print(f"result: {listener.getResult()}")
- 
 if __name__ == '__main__':
     main(sys.argv)

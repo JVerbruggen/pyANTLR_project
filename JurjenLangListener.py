@@ -71,6 +71,15 @@ class JurjenLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JurjenLangParser#printstat.
+    def enterPrintstat(self, ctx:JurjenLangParser.PrintstatContext):
+        pass
+
+    # Exit a parse tree produced by JurjenLangParser#printstat.
+    def exitPrintstat(self, ctx:JurjenLangParser.PrintstatContext):
+        pass
+
+
     # Enter a parse tree produced by JurjenLangParser#retstat.
     def enterRetstat(self, ctx:JurjenLangParser.RetstatContext):
         pass

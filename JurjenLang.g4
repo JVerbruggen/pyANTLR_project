@@ -19,6 +19,7 @@ ass : variable '=' e
 
 e : prio_e |
     e OPERATOR_FAC |
+    e OPERATOR_EXP e |
     e OPERATOR_MD e |
     e OPERATOR_AS e |
     integer |
@@ -37,6 +38,7 @@ PRINT_KW : 'print' ;
 NUMBERS : DIGIT+ ;
 IDENTIFIER : ('a' .. 'z' | 'A' .. 'Z') ('a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_')* ;
 OPERATOR_FAC    : '!' ;
+OPERATOR_EXP    : '^' ;
 OPERATOR_MD     : '*' | '/' ;
 OPERATOR_AS     : '+' | '-' ;
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines

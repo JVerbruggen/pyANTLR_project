@@ -57,7 +57,10 @@ class JurjenLangCustomListener(JurjenLangListener):
                 self.debug(f"added {child_obj.getChild(0)} (integer) to cache")
             elif type(child_obj) is JurjenLangParser.VariableContext:
                 var_name = str(child_obj.getChild(0))
-                var_val = self.scope_stack.latest().get_variable(var_name).value
+                var_obj = self.scope_stack.latest().get_variable(var_name)
+                if var_obj is None:
+                    raise ValueError("ERROR VARIABLE IS NOT DEFINED")
+                var_val = var_obj.value
 
                 self.cache.push(ctx, var_val)
                 self.debug(f"added {var_val} (from variable {var_name}) to cache")
@@ -93,6 +96,8 @@ class JurjenLangCustomListener(JurjenLangListener):
                 res = child1 * child2
             elif operator == '/':
                 res = child1 / child2
+            elif operator == '^':
+                res = child1 ** child2
             
             self.cache.remove(ctx.getChild(0))
             self.cache.remove(ctx.getChild(2))

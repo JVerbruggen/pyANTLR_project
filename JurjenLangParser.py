@@ -11,35 +11,36 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20")
-        buf.write("`\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\21")
+        buf.write("c\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16\t")
         buf.write("\16\4\17\t\17\3\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\5")
         buf.write("\3\5\3\5\3\6\3\6\3\6\5\6.\n\6\3\6\3\6\3\7\7\7\63\n\7\f")
         buf.write("\7\16\7\66\13\7\3\b\3\b\5\b:\n\b\3\t\3\t\3\t\3\n\3\n\3")
         buf.write("\13\3\13\3\13\3\13\3\f\3\f\3\f\3\f\5\fI\n\f\3\f\3\f\3")
-        buf.write("\f\3\f\3\f\3\f\3\f\3\f\7\fS\n\f\f\f\16\fV\13\f\3\r\3\r")
-        buf.write("\3\r\3\r\3\16\3\16\3\17\3\17\3\17\2\3\26\20\2\4\6\b\n")
-        buf.write("\f\16\20\22\24\26\30\32\34\2\2\2Y\2\36\3\2\2\2\4!\3\2")
-        buf.write("\2\2\6$\3\2\2\2\b\'\3\2\2\2\n*\3\2\2\2\f\64\3\2\2\2\16")
-        buf.write("9\3\2\2\2\20;\3\2\2\2\22>\3\2\2\2\24@\3\2\2\2\26H\3\2")
-        buf.write("\2\2\30W\3\2\2\2\32[\3\2\2\2\34]\3\2\2\2\36\37\5\4\3\2")
-        buf.write("\37 \7\2\2\3 \3\3\2\2\2!\"\5\6\4\2\"#\5\n\6\2#\5\3\2\2")
-        buf.write("\2$%\7\b\2\2%&\7\f\2\2&\7\3\2\2\2\'(\7\t\2\2()\5\22\n")
-        buf.write("\2)\t\3\2\2\2*+\7\3\2\2+-\5\f\7\2,.\5\b\5\2-,\3\2\2\2")
-        buf.write("-.\3\2\2\2./\3\2\2\2/\60\7\4\2\2\60\13\3\2\2\2\61\63\5")
-        buf.write("\16\b\2\62\61\3\2\2\2\63\66\3\2\2\2\64\62\3\2\2\2\64\65")
-        buf.write("\3\2\2\2\65\r\3\2\2\2\66\64\3\2\2\2\67:\5\24\13\28:\5")
-        buf.write("\20\t\29\67\3\2\2\298\3\2\2\2:\17\3\2\2\2;<\7\n\2\2<=")
-        buf.write("\5\26\f\2=\21\3\2\2\2>?\5\26\f\2?\23\3\2\2\2@A\5\32\16")
-        buf.write("\2AB\7\5\2\2BC\5\26\f\2C\25\3\2\2\2DE\b\f\1\2EI\5\30\r")
-        buf.write("\2FI\5\34\17\2GI\5\32\16\2HD\3\2\2\2HF\3\2\2\2HG\3\2\2")
-        buf.write("\2IT\3\2\2\2JK\f\6\2\2KL\7\16\2\2LS\5\26\f\7MN\f\5\2\2")
-        buf.write("NO\7\17\2\2OS\5\26\f\6PQ\f\7\2\2QS\7\r\2\2RJ\3\2\2\2R")
-        buf.write("M\3\2\2\2RP\3\2\2\2SV\3\2\2\2TR\3\2\2\2TU\3\2\2\2U\27")
-        buf.write("\3\2\2\2VT\3\2\2\2WX\7\6\2\2XY\5\26\f\2YZ\7\7\2\2Z\31")
-        buf.write("\3\2\2\2[\\\7\f\2\2\\\33\3\2\2\2]^\7\13\2\2^\35\3\2\2")
-        buf.write("\2\b-\649HRT")
+        buf.write("\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\7\fV\n\f\f\f\16\fY")
+        buf.write("\13\f\3\r\3\r\3\r\3\r\3\16\3\16\3\17\3\17\3\17\2\3\26")
+        buf.write("\20\2\4\6\b\n\f\16\20\22\24\26\30\32\34\2\2\2]\2\36\3")
+        buf.write("\2\2\2\4!\3\2\2\2\6$\3\2\2\2\b\'\3\2\2\2\n*\3\2\2\2\f")
+        buf.write("\64\3\2\2\2\169\3\2\2\2\20;\3\2\2\2\22>\3\2\2\2\24@\3")
+        buf.write("\2\2\2\26H\3\2\2\2\30Z\3\2\2\2\32^\3\2\2\2\34`\3\2\2\2")
+        buf.write("\36\37\5\4\3\2\37 \7\2\2\3 \3\3\2\2\2!\"\5\6\4\2\"#\5")
+        buf.write("\n\6\2#\5\3\2\2\2$%\7\b\2\2%&\7\f\2\2&\7\3\2\2\2\'(\7")
+        buf.write("\t\2\2()\5\22\n\2)\t\3\2\2\2*+\7\3\2\2+-\5\f\7\2,.\5\b")
+        buf.write("\5\2-,\3\2\2\2-.\3\2\2\2./\3\2\2\2/\60\7\4\2\2\60\13\3")
+        buf.write("\2\2\2\61\63\5\16\b\2\62\61\3\2\2\2\63\66\3\2\2\2\64\62")
+        buf.write("\3\2\2\2\64\65\3\2\2\2\65\r\3\2\2\2\66\64\3\2\2\2\67:")
+        buf.write("\5\24\13\28:\5\20\t\29\67\3\2\2\298\3\2\2\2:\17\3\2\2")
+        buf.write("\2;<\7\n\2\2<=\5\26\f\2=\21\3\2\2\2>?\5\26\f\2?\23\3\2")
+        buf.write("\2\2@A\5\32\16\2AB\7\5\2\2BC\5\26\f\2C\25\3\2\2\2DE\b")
+        buf.write("\f\1\2EI\5\30\r\2FI\5\34\17\2GI\5\32\16\2HD\3\2\2\2HF")
+        buf.write("\3\2\2\2HG\3\2\2\2IW\3\2\2\2JK\f\7\2\2KL\7\16\2\2LV\5")
+        buf.write("\26\f\bMN\f\6\2\2NO\7\17\2\2OV\5\26\f\7PQ\f\5\2\2QR\7")
+        buf.write("\20\2\2RV\5\26\f\6ST\f\b\2\2TV\7\r\2\2UJ\3\2\2\2UM\3\2")
+        buf.write("\2\2UP\3\2\2\2US\3\2\2\2VY\3\2\2\2WU\3\2\2\2WX\3\2\2\2")
+        buf.write("X\27\3\2\2\2YW\3\2\2\2Z[\7\6\2\2[\\\5\26\f\2\\]\7\7\2")
+        buf.write("\2]\31\3\2\2\2^_\7\f\2\2_\33\3\2\2\2`a\7\13\2\2a\35\3")
+        buf.write("\2\2\2\b-\649HUW")
         return buf.getvalue()
 
 
@@ -54,12 +55,13 @@ class JurjenLangParser ( Parser ):
     sharedContextCache = PredictionContextCache()
 
     literalNames = [ "<INVALID>", "'{'", "'}'", "'='", "'('", "')'", "'func'", 
-                     "'return'", "'print'", "<INVALID>", "<INVALID>", "'!'" ]
+                     "'return'", "'print'", "<INVALID>", "<INVALID>", "'!'", 
+                     "'^'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "FUNC_KW", "FUNC_RET", "PRINT_KW", 
-                      "NUMBERS", "IDENTIFIER", "OPERATOR_FAC", "OPERATOR_MD", 
-                      "OPERATOR_AS", "WS" ]
+                      "NUMBERS", "IDENTIFIER", "OPERATOR_FAC", "OPERATOR_EXP", 
+                      "OPERATOR_MD", "OPERATOR_AS", "WS" ]
 
     RULE_startRule = 0
     RULE_func = 1
@@ -92,9 +94,10 @@ class JurjenLangParser ( Parser ):
     NUMBERS=9
     IDENTIFIER=10
     OPERATOR_FAC=11
-    OPERATOR_MD=12
-    OPERATOR_AS=13
-    WS=14
+    OPERATOR_EXP=12
+    OPERATOR_MD=13
+    OPERATOR_AS=14
+    WS=15
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -630,6 +633,9 @@ class JurjenLangParser ( Parser ):
                 return self.getTypedRuleContext(JurjenLangParser.EContext,i)
 
 
+        def OPERATOR_EXP(self):
+            return self.getToken(JurjenLangParser.OPERATOR_EXP, 0)
+
         def OPERATOR_MD(self):
             return self.getToken(JurjenLangParser.OPERATOR_MD, 0)
 
@@ -680,7 +686,7 @@ class JurjenLangParser ( Parser ):
                 raise NoViableAltException(self)
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 82
+            self.state = 85
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,5,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -688,48 +694,61 @@ class JurjenLangParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 80
+                    self.state = 83
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
                     if la_ == 1:
                         localctx = JurjenLangParser.EContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_e)
                         self.state = 72
-                        if not self.precpred(self._ctx, 4):
+                        if not self.precpred(self._ctx, 5):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
                         self.state = 73
-                        self.match(JurjenLangParser.OPERATOR_MD)
+                        self.match(JurjenLangParser.OPERATOR_EXP)
                         self.state = 74
-                        self.e(5)
+                        self.e(6)
                         pass
 
                     elif la_ == 2:
                         localctx = JurjenLangParser.EContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_e)
                         self.state = 75
-                        if not self.precpred(self._ctx, 3):
+                        if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
                         self.state = 76
-                        self.match(JurjenLangParser.OPERATOR_AS)
+                        self.match(JurjenLangParser.OPERATOR_MD)
                         self.state = 77
-                        self.e(4)
+                        self.e(5)
                         pass
 
                     elif la_ == 3:
                         localctx = JurjenLangParser.EContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_e)
                         self.state = 78
-                        if not self.precpred(self._ctx, 5):
+                        if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 79
+                        self.match(JurjenLangParser.OPERATOR_AS)
+                        self.state = 80
+                        self.e(4)
+                        pass
+
+                    elif la_ == 4:
+                        localctx = JurjenLangParser.EContext(self, _parentctx, _parentState)
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_e)
+                        self.state = 81
+                        if not self.precpred(self._ctx, 6):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 6)")
+                        self.state = 82
                         self.match(JurjenLangParser.OPERATOR_FAC)
                         pass
 
              
-                self.state = 84
+                self.state = 87
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,5,self._ctx)
 
@@ -773,11 +792,11 @@ class JurjenLangParser ( Parser ):
         self.enterRule(localctx, 22, self.RULE_prio_e)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 85
+            self.state = 88
             self.match(JurjenLangParser.T__3)
-            self.state = 86
+            self.state = 89
             self.e(0)
-            self.state = 87
+            self.state = 90
             self.match(JurjenLangParser.T__4)
         except RecognitionException as re:
             localctx.exception = re
@@ -818,7 +837,7 @@ class JurjenLangParser ( Parser ):
         self.enterRule(localctx, 24, self.RULE_variable)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 89
+            self.state = 92
             self.match(JurjenLangParser.IDENTIFIER)
         except RecognitionException as re:
             localctx.exception = re
@@ -859,7 +878,7 @@ class JurjenLangParser ( Parser ):
         self.enterRule(localctx, 26, self.RULE_integer)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 91
+            self.state = 94
             self.match(JurjenLangParser.NUMBERS)
         except RecognitionException as re:
             localctx.exception = re
@@ -883,15 +902,19 @@ class JurjenLangParser ( Parser ):
 
     def e_sempred(self, localctx:EContext, predIndex:int):
             if predIndex == 0:
-                return self.precpred(self._ctx, 4)
+                return self.precpred(self._ctx, 5)
          
 
             if predIndex == 1:
-                return self.precpred(self._ctx, 3)
+                return self.precpred(self._ctx, 4)
          
 
             if predIndex == 2:
-                return self.precpred(self._ctx, 5)
+                return self.precpred(self._ctx, 3)
+         
+
+            if predIndex == 3:
+                return self.precpred(self._ctx, 6)
          
 
 

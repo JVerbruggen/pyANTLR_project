@@ -47,6 +47,16 @@ public interface JurjenLangListener extends ParseTreeListener {
 	 */
 	void exitFunc_return(JurjenLangParser.Func_returnContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JurjenLangParser#scope}.
+	 * @param ctx the parse tree
+	 */
+	void enterScope(JurjenLangParser.ScopeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JurjenLangParser#scope}.
+	 * @param ctx the parse tree
+	 */
+	void exitScope(JurjenLangParser.ScopeContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JurjenLangParser#stats}.
 	 * @param ctx the parse tree
 	 */

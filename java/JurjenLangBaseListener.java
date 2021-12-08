@@ -63,6 +63,18 @@ public class JurjenLangBaseListener implements JurjenLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterScope(JurjenLangParser.ScopeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScope(JurjenLangParser.ScopeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterStats(JurjenLangParser.StatsContext ctx) { }
 	/**
 	 * {@inheritDoc}

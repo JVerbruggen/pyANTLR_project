@@ -44,6 +44,15 @@ class JurjenLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JurjenLangParser#scope.
+    def enterScope(self, ctx:JurjenLangParser.ScopeContext):
+        pass
+
+    # Exit a parse tree produced by JurjenLangParser#scope.
+    def exitScope(self, ctx:JurjenLangParser.ScopeContext):
+        pass
+
+
     # Enter a parse tree produced by JurjenLangParser#stats.
     def enterStats(self, ctx:JurjenLangParser.StatsContext):
         pass
@@ -86,6 +95,15 @@ class JurjenLangListener(ParseTreeListener):
 
     # Exit a parse tree produced by JurjenLangParser#e.
     def exitE(self, ctx:JurjenLangParser.EContext):
+        pass
+
+
+    # Enter a parse tree produced by JurjenLangParser#variable.
+    def enterVariable(self, ctx:JurjenLangParser.VariableContext):
+        pass
+
+    # Exit a parse tree produced by JurjenLangParser#variable.
+    def exitVariable(self, ctx:JurjenLangParser.VariableContext):
         pass
 
 

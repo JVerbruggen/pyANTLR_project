@@ -1,22 +1,26 @@
 grammar JurjenLang ;
 startRule: func EOF ;
 
-func        : func_def '{' stats func_return '}' ;
+func        : func_def scope ;
 func_def    : FUNC_KW IDENTIFIER ;
 func_return : FUNC_RET retstat ;
+
+scope   : '{' stats func_return? '}' ;
 
 stats   : stat* ;
 stat    : ass ;
 
-retstat : e | IDENTIFIER ;
+retstat : e ;
 
-ass : IDENTIFIER '=' e
-    | IDENTIFIER '=' IDENTIFIER
+ass : variable '=' e
     ;
 
 e : e OPERATOR e |
-    INT
+    INT |
+    variable
     ;
+
+variable : IDENTIFIER ;
 
 FUNC_KW : 'func' ;
 FUNC_RET : 'return' ;

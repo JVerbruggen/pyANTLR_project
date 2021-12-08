@@ -20,4 +20,4 @@ class ScopeStack():
         self.stack = self.stack[:-1]
 
     def __str__(self):
-        return ",\n".join([str(scope) for scope in self.stack])
+        return " ScopeStack: "+",\n".join([str(scope) for scope in self.stack])

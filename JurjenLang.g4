@@ -15,19 +15,25 @@ retstat : e ;
 ass : variable '=' e
     ;
 
-e : e OPERATOR e |
-    INT |
+e : prio_e |
+    e OPERATOR_MD e |
+    e OPERATOR_AS e |
+    integer |
     variable
     ;
 
-variable : IDENTIFIER ;
+prio_e : '(' e ')' ;
+
+variable    : IDENTIFIER ;
+integer     : NUMBERS ;
 
 FUNC_KW : 'func' ;
 FUNC_RET : 'return' ;
 
-INT : DIGIT+ ;
+NUMBERS : DIGIT+ ;
 IDENTIFIER : ('a' .. 'z' | 'A' .. 'Z') ('a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_')* ;
-OPERATOR : '+' | '-' | '*' | '/' ;
+OPERATOR_MD     : '*' | '/' ;
+OPERATOR_AS     : '+' | '-' ;
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
 fragment DIGIT : '0' .. '9' ;

@@ -98,12 +98,30 @@ class JurjenLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JurjenLangParser#prio_e.
+    def enterPrio_e(self, ctx:JurjenLangParser.Prio_eContext):
+        pass
+
+    # Exit a parse tree produced by JurjenLangParser#prio_e.
+    def exitPrio_e(self, ctx:JurjenLangParser.Prio_eContext):
+        pass
+
+
     # Enter a parse tree produced by JurjenLangParser#variable.
     def enterVariable(self, ctx:JurjenLangParser.VariableContext):
         pass
 
     # Exit a parse tree produced by JurjenLangParser#variable.
     def exitVariable(self, ctx:JurjenLangParser.VariableContext):
+        pass
+
+
+    # Enter a parse tree produced by JurjenLangParser#integer.
+    def enterInteger(self, ctx:JurjenLangParser.IntegerContext):
+        pass
+
+    # Exit a parse tree produced by JurjenLangParser#integer.
+    def exitInteger(self, ctx:JurjenLangParser.IntegerContext):
         pass
 
 

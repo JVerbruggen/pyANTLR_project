@@ -16,30 +16,30 @@ public class JurjenLangParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, FUNC_KW=4, FUNC_RET=5, INT=6, IDENTIFIER=7, OPERATOR=8, 
-		WS=9;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, FUNC_KW=6, FUNC_RET=7, NUMBERS=8, 
+		IDENTIFIER=9, OPERATOR_MD=10, OPERATOR_AS=11, WS=12;
 	public static final int
 		RULE_startRule = 0, RULE_func = 1, RULE_func_def = 2, RULE_func_return = 3, 
 		RULE_scope = 4, RULE_stats = 5, RULE_stat = 6, RULE_retstat = 7, RULE_ass = 8, 
-		RULE_e = 9;
+		RULE_e = 9, RULE_prio_e = 10, RULE_variable = 11, RULE_integer = 12;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"startRule", "func", "func_def", "func_return", "scope", "stats", "stat", 
-			"retstat", "ass", "e"
+			"retstat", "ass", "e", "prio_e", "variable", "integer"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'{'", "'}'", "'='", "'func'", "'return'"
+			null, "'{'", "'}'", "'='", "'('", "')'", "'func'", "'return'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, "FUNC_KW", "FUNC_RET", "INT", "IDENTIFIER", "OPERATOR", 
-			"WS"
+			null, null, null, null, null, null, "FUNC_KW", "FUNC_RET", "NUMBERS", 
+			"IDENTIFIER", "OPERATOR_MD", "OPERATOR_AS", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -118,9 +118,9 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(20);
+			setState(26);
 			func();
-			setState(21);
+			setState(27);
 			match(EOF);
 			}
 		}
@@ -162,9 +162,9 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(23);
+			setState(29);
 			func_def();
-			setState(24);
+			setState(30);
 			scope();
 			}
 		}
@@ -202,9 +202,9 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(26);
+			setState(32);
 			match(FUNC_KW);
-			setState(27);
+			setState(33);
 			match(IDENTIFIER);
 			}
 		}
@@ -244,9 +244,9 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(29);
+			setState(35);
 			match(FUNC_RET);
-			setState(30);
+			setState(36);
 			retstat();
 			}
 		}
@@ -289,21 +289,21 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(32);
+			setState(38);
 			match(T__0);
-			setState(33);
+			setState(39);
 			stats();
-			setState(35);
+			setState(41);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==FUNC_RET) {
 				{
-				setState(34);
+				setState(40);
 				func_return();
 				}
 			}
 
-			setState(37);
+			setState(43);
 			match(T__1);
 			}
 		}
@@ -346,17 +346,17 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42);
+			setState(48);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==IDENTIFIER) {
 				{
 				{
-				setState(39);
+				setState(45);
 				stat();
 				}
 				}
-				setState(44);
+				setState(50);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -397,7 +397,7 @@ public class JurjenLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(45);
+			setState(51);
 			ass();
 			}
 		}
@@ -416,7 +416,6 @@ public class JurjenLangParser extends Parser {
 		public EContext e() {
 			return getRuleContext(EContext.class,0);
 		}
-		public TerminalNode IDENTIFIER() { return getToken(JurjenLangParser.IDENTIFIER, 0); }
 		public RetstatContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -435,25 +434,10 @@ public class JurjenLangParser extends Parser {
 		RetstatContext _localctx = new RetstatContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_retstat);
 		try {
-			setState(49);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case INT:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(47);
-				e(0);
-				}
-				break;
-			case IDENTIFIER:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(48);
-				match(IDENTIFIER);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(53);
+			e(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -468,9 +452,8 @@ public class JurjenLangParser extends Parser {
 	}
 
 	public static class AssContext extends ParserRuleContext {
-		public List<TerminalNode> IDENTIFIER() { return getTokens(JurjenLangParser.IDENTIFIER); }
-		public TerminalNode IDENTIFIER(int i) {
-			return getToken(JurjenLangParser.IDENTIFIER, i);
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
 		}
 		public EContext e() {
 			return getRuleContext(EContext.class,0);
@@ -493,31 +476,14 @@ public class JurjenLangParser extends Parser {
 		AssContext _localctx = new AssContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_ass);
 		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(55);
+			variable();
+			setState(56);
+			match(T__2);
 			setState(57);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(51);
-				match(IDENTIFIER);
-				setState(52);
-				match(T__2);
-				setState(53);
-				e(0);
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(54);
-				match(IDENTIFIER);
-				setState(55);
-				match(T__2);
-				setState(56);
-				match(IDENTIFIER);
-				}
-				break;
+			e(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -532,14 +498,23 @@ public class JurjenLangParser extends Parser {
 	}
 
 	public static class EContext extends ParserRuleContext {
-		public TerminalNode INT() { return getToken(JurjenLangParser.INT, 0); }
+		public Prio_eContext prio_e() {
+			return getRuleContext(Prio_eContext.class,0);
+		}
+		public IntegerContext integer() {
+			return getRuleContext(IntegerContext.class,0);
+		}
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
 		public List<EContext> e() {
 			return getRuleContexts(EContext.class);
 		}
 		public EContext e(int i) {
 			return getRuleContext(EContext.class,i);
 		}
-		public TerminalNode OPERATOR() { return getToken(JurjenLangParser.OPERATOR, 0); }
+		public TerminalNode OPERATOR_MD() { return getToken(JurjenLangParser.OPERATOR_MD, 0); }
+		public TerminalNode OPERATOR_AS() { return getToken(JurjenLangParser.OPERATOR_AS, 0); }
 		public EContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -569,12 +544,32 @@ public class JurjenLangParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			{
-			setState(60);
-			match(INT);
+			setState(63);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case T__3:
+				{
+				setState(60);
+				prio_e();
+				}
+				break;
+			case NUMBERS:
+				{
+				setState(61);
+				integer();
+				}
+				break;
+			case IDENTIFIER:
+				{
+				setState(62);
+				variable();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(67);
+			setState(73);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -582,19 +577,37 @@ public class JurjenLangParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					{
-					_localctx = new EContext(_parentctx, _parentState);
-					pushNewRecursionContext(_localctx, _startState, RULE_e);
-					setState(62);
-					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-					setState(63);
-					match(OPERATOR);
-					setState(64);
-					e(3);
+					setState(71);
+					_errHandler.sync(this);
+					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+					case 1:
+						{
+						_localctx = new EContext(_parentctx, _parentState);
+						pushNewRecursionContext(_localctx, _startState, RULE_e);
+						setState(65);
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						setState(66);
+						match(OPERATOR_MD);
+						setState(67);
+						e(5);
+						}
+						break;
+					case 2:
+						{
+						_localctx = new EContext(_parentctx, _parentState);
+						pushNewRecursionContext(_localctx, _startState, RULE_e);
+						setState(68);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(69);
+						match(OPERATOR_AS);
+						setState(70);
+						e(4);
+						}
+						break;
 					}
 					} 
 				}
-				setState(69);
+				setState(75);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
@@ -611,6 +624,123 @@ public class JurjenLangParser extends Parser {
 		return _localctx;
 	}
 
+	public static class Prio_eContext extends ParserRuleContext {
+		public EContext e() {
+			return getRuleContext(EContext.class,0);
+		}
+		public Prio_eContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_prio_e; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof JurjenLangListener ) ((JurjenLangListener)listener).enterPrio_e(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof JurjenLangListener ) ((JurjenLangListener)listener).exitPrio_e(this);
+		}
+	}
+
+	public final Prio_eContext prio_e() throws RecognitionException {
+		Prio_eContext _localctx = new Prio_eContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_prio_e);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(76);
+			match(T__3);
+			setState(77);
+			e(0);
+			setState(78);
+			match(T__4);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class VariableContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(JurjenLangParser.IDENTIFIER, 0); }
+		public VariableContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_variable; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof JurjenLangListener ) ((JurjenLangListener)listener).enterVariable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof JurjenLangListener ) ((JurjenLangListener)listener).exitVariable(this);
+		}
+	}
+
+	public final VariableContext variable() throws RecognitionException {
+		VariableContext _localctx = new VariableContext(_ctx, getState());
+		enterRule(_localctx, 22, RULE_variable);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(80);
+			match(IDENTIFIER);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class IntegerContext extends ParserRuleContext {
+		public TerminalNode NUMBERS() { return getToken(JurjenLangParser.NUMBERS, 0); }
+		public IntegerContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_integer; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof JurjenLangListener ) ((JurjenLangListener)listener).enterInteger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof JurjenLangListener ) ((JurjenLangListener)listener).exitInteger(this);
+		}
+	}
+
+	public final IntegerContext integer() throws RecognitionException {
+		IntegerContext _localctx = new IntegerContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_integer);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(82);
+			match(NUMBERS);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
 		case 9:
@@ -621,30 +751,34 @@ public class JurjenLangParser extends Parser {
 	private boolean e_sempred(EContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 2);
+			return precpred(_ctx, 4);
+		case 1:
+			return precpred(_ctx, 3);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13I\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3"+
-		"\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\5\3\5\3\5\3\6\3\6\3\6\5\6&\n\6\3"+
-		"\6\3\6\3\7\7\7+\n\7\f\7\16\7.\13\7\3\b\3\b\3\t\3\t\5\t\64\n\t\3\n\3\n"+
-		"\3\n\3\n\3\n\3\n\5\n<\n\n\3\13\3\13\3\13\3\13\3\13\3\13\7\13D\n\13\f\13"+
-		"\16\13G\13\13\3\13\2\3\24\f\2\4\6\b\n\f\16\20\22\24\2\2\2C\2\26\3\2\2"+
-		"\2\4\31\3\2\2\2\6\34\3\2\2\2\b\37\3\2\2\2\n\"\3\2\2\2\f,\3\2\2\2\16/\3"+
-		"\2\2\2\20\63\3\2\2\2\22;\3\2\2\2\24=\3\2\2\2\26\27\5\4\3\2\27\30\7\2\2"+
-		"\3\30\3\3\2\2\2\31\32\5\6\4\2\32\33\5\n\6\2\33\5\3\2\2\2\34\35\7\6\2\2"+
-		"\35\36\7\t\2\2\36\7\3\2\2\2\37 \7\7\2\2 !\5\20\t\2!\t\3\2\2\2\"#\7\3\2"+
-		"\2#%\5\f\7\2$&\5\b\5\2%$\3\2\2\2%&\3\2\2\2&\'\3\2\2\2\'(\7\4\2\2(\13\3"+
-		"\2\2\2)+\5\16\b\2*)\3\2\2\2+.\3\2\2\2,*\3\2\2\2,-\3\2\2\2-\r\3\2\2\2."+
-		",\3\2\2\2/\60\5\22\n\2\60\17\3\2\2\2\61\64\5\24\13\2\62\64\7\t\2\2\63"+
-		"\61\3\2\2\2\63\62\3\2\2\2\64\21\3\2\2\2\65\66\7\t\2\2\66\67\7\5\2\2\67"+
-		"<\5\24\13\289\7\t\2\29:\7\5\2\2:<\7\t\2\2;\65\3\2\2\2;8\3\2\2\2<\23\3"+
-		"\2\2\2=>\b\13\1\2>?\7\b\2\2?E\3\2\2\2@A\f\4\2\2AB\7\n\2\2BD\5\24\13\5"+
-		"C@\3\2\2\2DG\3\2\2\2EC\3\2\2\2EF\3\2\2\2F\25\3\2\2\2GE\3\2\2\2\7%,\63"+
-		";E";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16W\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
+		"\f\t\f\4\r\t\r\4\16\t\16\3\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\5\3\5\3"+
+		"\5\3\6\3\6\3\6\5\6,\n\6\3\6\3\6\3\7\7\7\61\n\7\f\7\16\7\64\13\7\3\b\3"+
+		"\b\3\t\3\t\3\n\3\n\3\n\3\n\3\13\3\13\3\13\3\13\5\13B\n\13\3\13\3\13\3"+
+		"\13\3\13\3\13\3\13\7\13J\n\13\f\13\16\13M\13\13\3\f\3\f\3\f\3\f\3\r\3"+
+		"\r\3\16\3\16\3\16\2\3\24\17\2\4\6\b\n\f\16\20\22\24\26\30\32\2\2\2O\2"+
+		"\34\3\2\2\2\4\37\3\2\2\2\6\"\3\2\2\2\b%\3\2\2\2\n(\3\2\2\2\f\62\3\2\2"+
+		"\2\16\65\3\2\2\2\20\67\3\2\2\2\229\3\2\2\2\24A\3\2\2\2\26N\3\2\2\2\30"+
+		"R\3\2\2\2\32T\3\2\2\2\34\35\5\4\3\2\35\36\7\2\2\3\36\3\3\2\2\2\37 \5\6"+
+		"\4\2 !\5\n\6\2!\5\3\2\2\2\"#\7\b\2\2#$\7\13\2\2$\7\3\2\2\2%&\7\t\2\2&"+
+		"\'\5\20\t\2\'\t\3\2\2\2()\7\3\2\2)+\5\f\7\2*,\5\b\5\2+*\3\2\2\2+,\3\2"+
+		"\2\2,-\3\2\2\2-.\7\4\2\2.\13\3\2\2\2/\61\5\16\b\2\60/\3\2\2\2\61\64\3"+
+		"\2\2\2\62\60\3\2\2\2\62\63\3\2\2\2\63\r\3\2\2\2\64\62\3\2\2\2\65\66\5"+
+		"\22\n\2\66\17\3\2\2\2\678\5\24\13\28\21\3\2\2\29:\5\30\r\2:;\7\5\2\2;"+
+		"<\5\24\13\2<\23\3\2\2\2=>\b\13\1\2>B\5\26\f\2?B\5\32\16\2@B\5\30\r\2A"+
+		"=\3\2\2\2A?\3\2\2\2A@\3\2\2\2BK\3\2\2\2CD\f\6\2\2DE\7\f\2\2EJ\5\24\13"+
+		"\7FG\f\5\2\2GH\7\r\2\2HJ\5\24\13\6IC\3\2\2\2IF\3\2\2\2JM\3\2\2\2KI\3\2"+
+		"\2\2KL\3\2\2\2L\25\3\2\2\2MK\3\2\2\2NO\7\6\2\2OP\5\24\13\2PQ\7\7\2\2Q"+
+		"\27\3\2\2\2RS\7\13\2\2S\31\3\2\2\2TU\7\n\2\2U\33\3\2\2\2\7+\62AIK";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -1,6 +1,8 @@
 func test {
     varrr = 3*9
     kaas = varrr
-    sambal = kaas*10
+    sambal = kaas+(10*10)
+    sambaltwo = kaas*(10+10)
+    sambalwrong = kaas*10+10
     return sambal
 }

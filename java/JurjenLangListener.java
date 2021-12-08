@@ -106,4 +106,34 @@ public interface JurjenLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitE(JurjenLangParser.EContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JurjenLangParser#prio_e}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrio_e(JurjenLangParser.Prio_eContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JurjenLangParser#prio_e}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrio_e(JurjenLangParser.Prio_eContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JurjenLangParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariable(JurjenLangParser.VariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JurjenLangParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariable(JurjenLangParser.VariableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JurjenLangParser#integer}.
+	 * @param ctx the parse tree
+	 */
+	void enterInteger(JurjenLangParser.IntegerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JurjenLangParser#integer}.
+	 * @param ctx the parse tree
+	 */
+	void exitInteger(JurjenLangParser.IntegerContext ctx);
 }

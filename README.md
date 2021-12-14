@@ -1,4 +1,5 @@
-DEPRECATED, new repo at `https://github.com/JVerbruggen/pyANTLR_project_v2`
+# DEPRECATED
+new repo at `https://github.com/JVerbruggen/pyANTLR_project_v2`
 
 # pyANTLR_project
 
